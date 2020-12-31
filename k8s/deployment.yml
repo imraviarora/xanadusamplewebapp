@@ -1,36 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: demoapp-deployment
+    name: xanaduwebapp-deployment
     labels:
-        app: demoapp
+        app: xanaduwebapp
 spec:
     replicas: 1
     selector:
         matchLabels:
-            app: demoapp
+            app: xanaduwebapp
     template: 
         metadata:
             labels:
-                app: demoapp
+                app: xanaduwebapp
         spec:
             containers:
             - name: k8s-demo
-              image: gcr.io/tde-coe-anthos/helloworld:latest
+              image: gcr.io/tde-coe-anthos/xanadusamplewebapp:latest
               ports:
-              - containerPort: 80
+              - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-    name: demoapp
+    name: xanaduwebapp
     labels:
-        app: demoapp
+        app: xanaduwebapp
 spec:
     ports:
         - name: http-port
           port: 80
-          targetPort: 80
+          targetPort: 8080
     selector: 
-        app: demoapp
+        app: xanaduwebapp
     type: LoadBalancer
