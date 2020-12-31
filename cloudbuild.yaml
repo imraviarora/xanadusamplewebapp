@@ -14,5 +14,5 @@ steps:
   - run
   - --filename=k8s/
   - --image=gcr.io/$PROJECT_ID/xanadusamplewebapp:latest
-  - --location=asia-east1-a
-  - --cluster=anthos-sample-cluster1
+  - --location=us-central1-c
+  - --cluster=perfectk8s
